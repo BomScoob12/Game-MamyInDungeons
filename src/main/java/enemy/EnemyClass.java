@@ -1,35 +1,35 @@
-package player;
+package enemy;
 
 import java.util.Random;
 
-public enum PlayerClass {
-    KNIGHT("Knight",15,30,30,40),
-    MAGE("Mage",20,10,30,50),
-    PRIEST("Priest",10,20,30,40),
-    THIEF("Thief",17,15,30,40);
+public enum EnemyClass {
+    SPIDERMAN("John", 10,10,30),
+    ZOMBIE("John2", 10,10,30),
+    ORC("John3", 10,10,30),
+    BOSS("John4", 10,10,30),
+    BEE("John5", 10,10,30);
 
     private String name;
     private final double attack;
     private final double armor;
     private final double health;
-    private final double stamina;
-    PlayerClass(String name, double attack, double armor, double health, double stamina){
+
+    EnemyClass(String name, double attack, double armor, double health){
         this.name = name;
         this.attack = attack;
         this.armor = armor;
         this.health = health;
-        this.stamina = stamina;
     }
 
     //random class for player
-    public static PlayerClass randomStats(){
+    public static EnemyClass randomStats(){
         Random random = new Random();
-        PlayerClass[] randomClass = values();
+        EnemyClass[] randomClass = values();
         return randomClass[random.nextInt(randomClass.length)];
     }
 
-    public String getName(){
-        return this.name;
+    public String getName() {
+        return name;
     }
 
     public double getAttack() {
@@ -44,10 +44,6 @@ public enum PlayerClass {
         return health;
     }
 
-    public double getStamina() {
-        return stamina;
-    }
-
     public void setName(String name){
         this.name = name;
     }
@@ -57,7 +53,6 @@ public enum PlayerClass {
         return name +
                 ", attack=" + attack +
                 ", armor=" + armor +
-                ", health=" + health +
-                ", stamina=" + stamina;
+                ", health=" + health;
     }
 }

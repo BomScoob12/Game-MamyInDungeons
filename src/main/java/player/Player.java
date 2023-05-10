@@ -1,16 +1,18 @@
 package player;
 
-public class Player {
+public class Player implements Exp{
     private String name;
     private final String id;
-    private int countPlayer;
-    private PlayerClass playerClass;
+    private PlayerClass playerStats;
+    private int level;
+    private int currentExp;
+    private int expMax = 100;
 
 
     public Player(String name){
         this.name = name;
-        this.id = "083-00"+(++countPlayer);
-        this.playerClass = PlayerClass.randomStats();
+        this.id = "65083";
+        this.playerStats = PlayerClass.randomStats();
     }
 
     public String getName() {
@@ -22,7 +24,7 @@ public class Player {
     }
 
     public PlayerClass getStats() {
-        return playerClass;
+        return playerStats;
     }
 
     public void setName(String name) {
@@ -31,11 +33,22 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", countPlayer=" + countPlayer +
-                ", stats=" + playerClass +
-                '}';
+        return "Player [name=" + name + ", id=" + id + ", playerStats=" + playerStats + "]";
     }
+
+    @Override
+    public int getLevel() {
+        return level;
+    }
+
+    @Override
+    public void increaseExp(int amountExp) {
+        currentExp += amountExp;
+        if (currentExp >= expMax){
+            currentExp -= expMax;
+            expMax += 100;
+            level++;
+        }
+    }
+
 }

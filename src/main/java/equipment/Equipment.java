@@ -9,4 +9,8 @@ public class Equipment {
         this.type = type;
     }
 
+    public TypeEquip getType(){
+        return this.type;
+    }
+
 }
