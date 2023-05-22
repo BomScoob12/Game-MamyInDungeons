@@ -6,7 +6,7 @@ public enum EnemyClass {
     SPIDERMAN("John", 10,10,30),
     ZOMBIE("John2", 10,10,30),
     ORC("John3", 10,10,30),
-    BOSS("John4", 10,10,30),
+    BOSSON("John4", 10,10,30),
     BEE("John5", 10,10,30);
 
     private String name;

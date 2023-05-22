@@ -8,13 +8,13 @@ public enum PlayerClass {
     PRIEST("Priest",10,20,30,40),
     THIEF("Thief",17,15,30,40);
 
-    private String name;
+    private String className;
     private final double attack;
     private final double armor;
     private final double health;
     private final double stamina;
-    PlayerClass(String name, double attack, double armor, double health, double stamina){
-        this.name = name;
+    PlayerClass(String className, double attack, double armor, double health, double stamina){
+        this.className = className;
         this.attack = attack;
         this.armor = armor;
         this.health = health;
@@ -28,8 +28,8 @@ public enum PlayerClass {
         return randomClass[random.nextInt(randomClass.length)];
     }
 
-    public String getName(){
-        return this.name;
+    public String getClassName(){
+        return this.className;
     }
 
     public double getAttack() {
@@ -48,13 +48,13 @@ public enum PlayerClass {
         return stamina;
     }
 
-    public void setName(String name){
-        this.name = name;
+    public void setClassName(String className){
+        this.className = className;
     }
 
     @Override
     public String toString() {
-        return name +
+        return className +
                 ", attack=" + attack +
                 ", armor=" + armor +
                 ", health=" + health +

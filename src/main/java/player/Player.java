@@ -1,6 +1,10 @@
 package player;
 
-public class Player implements Exp{
+import controller.Actions;
+
+import java.io.Serializable;
+
+public class Player implements Exp, Serializable {
     private String name;
     private final String id;
     private PlayerClass playerStats;
@@ -14,6 +18,7 @@ public class Player implements Exp{
         this.id = "65083";
         this.playerStats = PlayerClass.randomStats();
     }
+
 
     public String getName() {
         return name;

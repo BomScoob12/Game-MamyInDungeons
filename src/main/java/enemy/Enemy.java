@@ -1,36 +1,42 @@
 package enemy;
 
+import controller.Actions;
+
 import java.util.Random;
 
 public class Enemy {
     private EnemyClass enemyStats;
+    private boolean isAlive;
 
     public Enemy(){
         enemyStats = EnemyClass.randomStats();
+        isAlive = true;
     }
 
-    public double attack(){
-        Random random = new Random();
-        switch(random.nextInt(3)){
-            case 0:
-                return normalAttack();
-            case 1:
-                return criticalAttack();
-            case 2:
-                return specialAttack();
-        }
-        return 0;
+    private void setAlive(boolean bool){
+        this.isAlive = bool;
     }
 
-    private double normalAttack(){
-        return enemyStats.getArmor();
-    }
-    private double criticalAttack(){
-        return enemyStats.getAttack() * 1.5;
-    }
-    private double specialAttack(){
-        return enemyStats.getAttack() * 2;
+    public boolean isAlive(){
+        return isAlive;
     }
 
+    public void takeTurn(){
+        System.out.println("Enemy taking turn.......");
+
+    }
+
+    private Skill randomSkill(){
+        Random ran = new Random();
+        Skill [] skill = Skill.values();
+        int randomIndex = ran.nextInt(skill.length);
+        return skill[randomIndex];
+    }
+
+    @Override
+    public String toString() {
+        return "Enemy{" +
+                "enemyStats=" + enemyStats + '}';
+    }
 }
 
