@@ -4,7 +4,6 @@ import enemy.Enemy;
 import player.Player;
 
 import java.io.*;
-import java.util.Objects;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,7 +11,7 @@ import java.util.logging.Logger;
 public class GameController {
     private Player player;
     private Enemy enemy;
-    private Scanner scan;
+    private final Scanner scan;
 
     public GameController(){
         scan = new Scanner(System.in);
@@ -33,7 +32,7 @@ public class GameController {
         saveGame();
     }
     public void loadPlayer() throws IOException, ClassNotFoundException {
-            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("saved-data.dat"));
+            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("./saved-data.dat"));
             player = (Player) objectInputStream.readObject();
             objectInputStream.close();
             System.out.println("Data loaded.");
@@ -64,7 +63,7 @@ public class GameController {
         System.out.println("Print enemy stats :");
         System.out.println(enemy);
         do {
-            System.out.println("Turn " + turn.getCount());
+            System.out.println("Turn " + turn.getCountTurn());
             turn.startTurn();
         } while (enemy.isAlive());
         System.out.println("You winnn.....");

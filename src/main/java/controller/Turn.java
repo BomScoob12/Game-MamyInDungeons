@@ -4,15 +4,15 @@ import enemy.Enemy;
 import player.Player;
 
 public class Turn {
-    private Player player;
-    private Enemy enemy;
-    private Actions actions;
-    private int count = 1;
+    private final Player player;
+    private final Enemy enemy;
+    private final Actions actions;
+    private int countTurn = 1;
 
     public Turn(Player player, Enemy enemy) {
         this.player = player;
         this.enemy = enemy;
-        this.actions = new Actions(this.player, enemy);
+        this.actions = new Actions(this.player, this.enemy);
     }
 
     public void startTurn() {
@@ -24,10 +24,10 @@ public class Turn {
         } else{
             System.out.println("Enemy has die.");
         }
-        count++;
+        countTurn++;
     }
 
-    public int getCount(){
-        return count;
+    public int getCountTurn(){
+        return countTurn;
     }
 }

@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class Player implements Exp, Serializable {
     private String name;
     private final String id;
-    private PlayerClass playerStats;
+    private final PlayerClass playerStats;
     private int level;
     private int currentExp;
     private int expMax = 100;

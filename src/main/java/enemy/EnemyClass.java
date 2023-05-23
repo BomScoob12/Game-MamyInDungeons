@@ -10,9 +10,9 @@ public enum EnemyClass {
     BEE("John5", 10,10,30);
 
     private String name;
-    private final double attack;
-    private final double armor;
-    private final double health;
+    private double attack;
+    private double armor;
+    private double health;
 
     EnemyClass(String name, double attack, double armor, double health){
         this.name = name;
@@ -46,6 +46,18 @@ public enum EnemyClass {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public void setAttack(double attack) {
+        this.attack = attack;
+    }
+
+    public void setArmor(double armor) {
+        this.armor = armor;
+    }
+
+    public void setHealth(double health) {
+        this.health = health;
     }
 
     @Override

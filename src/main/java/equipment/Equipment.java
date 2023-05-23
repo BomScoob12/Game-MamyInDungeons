@@ -1,4 +1,4 @@
-package equipment;;
+package equipment;
 
 public class Equipment {
     public final String equipName;

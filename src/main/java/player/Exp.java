@@ -1,6 +1,6 @@
 package player;
 
 public interface Exp {
-    public void increaseExp(int param);
-    public int getLevel();
+    void increaseExp(int param);
+    int getLevel();
 }

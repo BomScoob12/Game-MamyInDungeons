@@ -5,7 +5,7 @@ import controller.Actions;
 import java.util.Random;
 
 public class Enemy {
-    private EnemyClass enemyStats;
+    private final EnemyClass enemyStats;
     private boolean isAlive;
 
     public Enemy(){
@@ -22,8 +22,8 @@ public class Enemy {
     }
 
     public void takeTurn(){
+        if (this.getEnemyStats().getHealth() <= 0) setAlive(false);
         System.out.println("Enemy taking turn.......");
-
     }
 
     private Skill randomSkill(){
@@ -31,6 +31,10 @@ public class Enemy {
         Skill [] skill = Skill.values();
         int randomIndex = ran.nextInt(skill.length);
         return skill[randomIndex];
+    }
+
+    public EnemyClass getEnemyStats() {
+        return enemyStats;
     }
 
     @Override

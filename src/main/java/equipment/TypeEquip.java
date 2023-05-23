@@ -4,5 +4,5 @@ public enum TypeEquip {
     ATTACK,
     ARMOR,
     HEALTH,
-    STAMINA;
+    STAMINA
 }

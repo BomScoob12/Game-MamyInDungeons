@@ -6,8 +6,8 @@ import player.Player;
 import java.util.Scanner;
 
 public class Actions {
-    private Player player;
-    private Enemy enemy;
+    private final Player player;
+    private final Enemy enemy;
     Scanner scan;
 
     public Actions(Player player, Enemy enemy){
@@ -41,6 +41,29 @@ public class Actions {
 
     private void attack(){
         System.out.println("ATK");
+        double playerAttack = player.getStats().getAttack();
+        double enemyHealth = enemy.getEnemyStats().getHealth();
+        double enemyArmor = enemy.getEnemyStats().getArmor();
+
+        if (enemyArmor == 0) {
+            double remain = enemyHealth - playerAttack;
+            enemy.getEnemyStats().setHealth(remain);
+            System.out.println(player);
+            System.out.println(enemy);
+        }
+        else if (playerAttack >= enemyArmor){
+            playerAttack = playerAttack - enemyArmor;
+            double remain = enemyHealth - playerAttack;
+            enemy.getEnemyStats().setArmor(0);
+            enemy.getEnemyStats().setHealth(remain);
+            System.out.println(player);
+            System.out.println(enemy);
+        }else {
+            enemyArmor = enemyArmor - playerAttack;
+            enemy.getEnemyStats().setArmor(enemyArmor);
+            System.out.println(player);
+            System.out.println(enemy);
+        }
     }
     private void defends(){
         System.out.println("DEFENDS");
